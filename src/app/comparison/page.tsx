@@ -120,7 +120,103 @@ export default function Comparison() {
           </div>
         </section>
 
-        {/* Conclusion */}
+        
+        {/* Casualties Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">The Cost of Glory: Casualty Comparison</h2>
+          
+          {/* Casualty Cards */}
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            {/* Alexander Casualties */}
+            <div className="bg-[#f4e4bc] rounded-xl shadow-lg overflow-hidden border-4 border-[#8b6914]">
+              <div className="bg-[#8b6914] text-[#f4e4bc] p-4 text-center">
+                <h3 className="text-2xl font-bold font-serif">Alexander the Great</h3>
+                <p className="text-sm opacity-90">334-323 BC (10 Years)</p>
+              </div>
+              <div className="p-6">
+                <div className="mb-4">
+                  <p className="text-sm text-[#5c4033] font-serif mb-1">Enemy Casualties</p>
+                  <p className="text-4xl font-bold text-[#8b0000]">200,000+</p>
+                  <p className="text-xs text-stone-600 mt-1">Persians, Indians, and others killed in battle</p>
+                </div>
+                <div className="border-t border-[#8b6914]/30 pt-4">
+                  <p className="text-sm text-[#5c4033] font-serif mb-1">Macedonian Losses</p>
+                  <p className="text-4xl font-bold text-[#8b0000]">50,000+</p>
+                  <p className="text-xs text-stone-600 mt-1">Soldiers lost from inherited army</p>
+                </div>
+                <div className="mt-4 p-3 bg-[#8b0000]/10 rounded border-l-4 border-[#8b0000]">
+                  <p className="text-sm text-[#5c4033] font-serif">
+                    <strong>Result:</strong> Empire collapsed within 2 years of his death
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Napoleon Casualties */}
+            <div className="bg-stone-100 rounded-xl shadow-lg overflow-hidden border-4 border-stone-600">
+              <div className="bg-stone-800 text-stone-100 p-4 text-center">
+                <h3 className="text-2xl font-bold font-serif">Napoleon Bonaparte</h3>
+                <p className="text-sm opacity-90">1800-1815 (15 Years)</p>
+              </div>
+              <div className="p-6">
+                <div className="mb-4">
+                  <p className="text-sm text-stone-600 font-serif mb-1">Enemy Casualties</p>
+                  <p className="text-4xl font-bold text-stone-800">1,000,000+</p>
+                  <p className="text-xs text-stone-600 mt-1">Across European campaigns</p>
+                </div>
+                <div className="border-t border-stone-300 pt-4">
+                  <p className="text-sm text-stone-600 font-serif mb-1">French Losses</p>
+                  <p className="text-4xl font-bold text-stone-800">400,000+</p>
+                  <p className="text-xs text-stone-600 mt-1">Grand Armée soldiers lost</p>
+                </div>
+                <div className="mt-4 p-3 bg-stone-300/30 rounded border-l-4 border-stone-600">
+                  <p className="text-sm text-stone-700 font-serif">
+                    <strong>Result:</strong> Napoleonic Code and reforms still influence law today
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Casualty Analysis */}
+          <div className="bg-[#f4e4bc] rounded-xl p-8 shadow-lg border-2 border-[#8b6914]">
+            <h3 className="text-2xl font-bold text-[#5c4033] font-serif mb-6 text-center">The Paradox of Casualties</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-lg font-bold text-[#8b0000] mb-3 font-serif">Alexander: High Casualties, Immediate Collapse</h4>
+                <p className="text-[#5c4033] leading-relaxed mb-3">
+                  Despite conquering vast territories and killing over 200,000 enemies, Alexander's empire was nothing more than a personal military dictatorship. Without him, it immediately fractured.
+                </p>
+                <ul className="list-disc list-inside text-[#5c4033] space-y-2 text-sm">
+                  <li>No administrative infrastructure</li>
+                  <li>No succession plan</li>
+                  <li>Empire split into warring successor kingdoms</li>
+                  <li>All conquests lost within decades</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-lg font-bold text-stone-700 mb-3 font-serif">Napoleon: More Casualties, Lasting Legacy</h4>
+                <p className="text-stone-600 leading-relaxed mb-3">
+                  Napoleon caused far more casualties over a longer period, yet his impact endured. The Napoleonic Code remains the basis for legal systems in over 70 countries.
+                </p>
+                <ul className="list-disc list-inside text-stone-600 space-y-2 text-sm">
+                  <li>Created modern administrative systems</li>
+                  <li>Established the Napoleonic Code</li>
+                  <li>Reformed education and infrastructure</li>
+                  <li>Influence persists 200+ years later</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="mt-6 p-4 bg-[#8b6914]/10 rounded-lg border border-[#8b6914]">
+              <p className="text-[#5c4033] font-serif italic text-center">
+                <strong>The Verdict:</strong> Casualties alone do not measure greatness. Napoleon killed more but built lasting institutions. 
+                Alexander killed hundreds of thousands yet created nothing that survived him.
+              </p>
+            </div>
+          </div>
+        </section>
+{/* Conclusion */}
         <section className="bg-stone-800 text-stone-100 rounded-lg p-8">
           <h2 className="text-2xl font-bold mb-4">The Verdict</h2>
           <p className="text-lg leading-relaxed mb-4">

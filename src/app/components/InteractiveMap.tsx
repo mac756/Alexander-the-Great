@@ -10,6 +10,7 @@ interface ConquestPoint {
   year: string;
   description: string;
   significance: string;
+  casualties: string;
 }
 
 const conquestPoints: ConquestPoint[] = [
@@ -20,7 +21,8 @@ const conquestPoints: ConquestPoint[] = [
     y: 45,
     year: "336 BC",
     description: "Alexander's starting point - inherited from Philip II",
-    significance: "Already a powerful kingdom thanks to Philip's military reforms"
+    significance: "Already a powerful kingdom thanks to Philip's military reforms",
+    casualties: "Inherited: 0 (Philip's foundation)"
   },
   {
     id: "granicus",
@@ -29,7 +31,8 @@ const conquestPoints: ConquestPoint[] = [
     y: 48,
     year: "334 BC",
     description: "First major victory in Asia Minor",
-    significance: "Used Philip's phalanx tactics to defeat Persian forces"
+    significance: "Used Philip's phalanx tactics to defeat Persian forces",
+    casualties: "Persians: 5,000-6,000 killed; Macedonians: ~350"
   },
   {
     id: "issus",
@@ -38,7 +41,8 @@ const conquestPoints: ConquestPoint[] = [
     y: 52,
     year: "333 BC",
     description: "Defeat of Darius III",
-    significance: "Philip's combined arms tactics prevailed again"
+    significance: "Philip's combined arms tactics prevailed again",
+    casualties: "Persians: ~30,000; Macedonians: ~7,000"
   },
   {
     id: "gaugamela",
@@ -47,34 +51,8 @@ const conquestPoints: ConquestPoint[] = [
     y: 50,
     year: "331 BC",
     description: "Decisive battle conquering Persia",
-    significance: "The culmination of Philip's military innovations"
-  },
-  {
-    id: "persepolis",
-    name: "Persepolis",
-    x: 75,
-    y: 55,
-    year: "330 BC",
-    description: "Burning of the Persian capital",
-    significance: "Symbolic end of Persian Empire, but political mismanagement"
-  },
-  {
-    id: "bactria",
-    name: "Bactria & Sogdiana",
-    x: 82,
-    y: 42,
-    year: "329-327 BC",
-    description: "Brutal campaigns in Central Asia",
-    significance: "Costly wars showing administrative failures; no lasting governance"
-  },
-  {
-    id: "indus",
-    name: "Indus Valley",
-    x: 88,
-    y: 58,
-    year: "326 BC",
-    description: "Invasion of India",
-    significance: "Army mutinied - showed Alexander's poor leadership"
+    significance: "The culmination of Philip's military innovations",
+    casualties: "Persians: ~40,000-90,000; Macedonians: ~1,000-3,000"
   }
 ];
 
@@ -84,50 +62,91 @@ export default function InteractiveMap() {
 
   return (
     <div className="w-full">
-      <div className="relative bg-stone-200 rounded-lg overflow-hidden" style={{ aspectRatio: "16/9" }}>
+      <div className="relative bg-stone-100 rounded-xl overflow-hidden shadow-2xl border-4 border-amber-700">
         <svg viewBox="0 0 100 70" className="w-full h-full">
-          <path d="M10,20 Q15,15 25,20 L25,60 Q15,65 10,60 Z" fill="#93c5fd" opacity="0.5" />
-          <path d="M25,40 L35,38 L40,42 L38,48 L30,50 L25,48 Z" fill="#d6d3d1" stroke="#78716c" strokeWidth="0.5" />
-          <path d="M40,35 L60,38 L62,50 L55,55 L45,52 L40,45 Z" fill="#d6d3d1" stroke="#78716c" strokeWidth="0.5" />
-          <path d="M62,40 L85,42 L88,55 L80,60 L65,58 L62,50 Z" fill="#d6d3d1" stroke="#78716c" strokeWidth="0.5" />
-          <path d="M80,35 L95,38 L95,50 L85,52 L80,45 Z" fill="#d6d3d1" stroke="#78716c" strokeWidth="0.5" />
-          <path d="M52,45 L58,48 L65,52 L72,50 L75,55 L82,42 L88,58" fill="none" stroke="#dc2626" strokeWidth="0.8" strokeDasharray="2,1" opacity="0.6" />
+          {/* Mediterranean Sea */}
+          <path
+            d="M5,20 Q15,15 25,20 L28,50 Q30,65 25,68 L10,70 Q5,65 5,55 Z"
+            fill="#a8c5d9"
+            stroke="#5a7a96"
+            strokeWidth="0.5"
+          />
+          
+          {/* Land masses */}
+          <path
+            d="M20,40 L35,35 L45,40 L40,55 L25,60 Z"
+            fill="#d4c4a8"
+            stroke="#8b7355"
+            strokeWidth="0.5"
+          />
+          
+          <path
+            d="M45,35 L70,40 L75,55 L60,60 L45,55 Z"
+            fill="#d4c4a8"
+            stroke="#8b7355"
+            strokeWidth="0.5"
+          />
+          
+          <path
+            d="M70,40 L85,45 L90,55 L80,65 L70,60 Z"
+            fill="#d4c4a8"
+            stroke="#8b7355"
+            strokeWidth="0.5"
+          />
+          
+          {/* Conquest Route */}
+          <path
+            d="M52,45 Q55,42 58,48 Q62,50 65,52 Q68,52 72,50"
+            fill="none"
+            stroke="#dc2626"
+            strokeWidth="1"
+            strokeDasharray="2,1"
+          />
+          
+          {/* Conquest Points */}
           {conquestPoints.map((point) => (
             <g key={point.id}>
-              <circle cx={point.x} cy={point.y} r={hoveredPoint === point.id ? 2.5 : 2} fill={selectedPoint?.id === point.id ? "#dc2626" : "#d97706"} stroke="white" strokeWidth="0.5" className="cursor-pointer" onMouseEnter={() => setHoveredPoint(point.id)} onMouseLeave={() => setHoveredPoint(null)} onClick={() => setSelectedPoint(point)} />
-              {hoveredPoint === point.id && (
-                <text x={point.x} y={point.y - 3} textAnchor="middle" fontSize="3" fill="#1c1917" fontWeight="bold">{point.name}</text>
-              )}
+              <circle
+                cx={point.x}
+                cy={point.y}
+                r={hoveredPoint === point.id ? 4 : 2.5}
+                fill={selectedPoint?.id === point.id ? "#dc2626" : "#d97706"}
+                stroke="#5c4033"
+                strokeWidth="1"
+                className="cursor-pointer transition-all duration-200"
+                onMouseEnter={() => setHoveredPoint(point.id)}
+                onMouseLeave={() => setHoveredPoint(null)}
+                onClick={() => setSelectedPoint(point)}
+              />
+              <text
+                x={point.x}
+                y={point.y - 6}
+                textAnchor="middle"
+                fontSize="2"
+                fill="#5c4033"
+                fontWeight="bold"
+                className="pointer-events-none"
+              >
+                {point.name}
+              </text>
             </g>
           ))}
-          <text x="30" y="47" fontSize="2.5" fill="#57534e">Greece</text>
-          <text x="50" y="45" fontSize="2.5" fill="#57534e">Asia Minor</text>
-          <text x="72" y="52" fontSize="2.5" fill="#57534e">Persia</text>
-          <text x="87" y="40" fontSize="2.5" fill="#57534e">Bactria</text>
-          <text x="15" y="40" fontSize="2.5" fill="#57534e" fontStyle="italic">Mediterranean</text>
         </svg>
-        <div className="absolute bottom-4 left-4 bg-white/90 rounded-lg p-3 shadow-lg text-sm">
-          <div className="flex items-center gap-2 mb-1"><div className="w-3 h-3 rounded-full bg-amber-600"></div><span>Conquest Points</span></div>
-          <div className="flex items-center gap-2"><div className="w-8 h-0.5 bg-red-600" style={{borderTop: "2px dashed #dc2626"}}></div><span>Route</span></div>
-        </div>
       </div>
-      {selectedPoint ? (
-        <div className="mt-4 bg-white rounded-lg shadow-md p-6 border-l-4 border-amber-600">
-          <div className="flex justify-between items-start">
-            <div><span className="text-amber-600 font-bold text-sm">{selectedPoint.year}</span><h3 className="text-xl font-bold text-stone-800 mt-1">{selectedPoint.name}</h3></div>
-            <button onClick={() => setSelectedPoint(null)} className="text-stone-400 hover:text-stone-600 text-2xl">×</button>
+      
+      {selectedPoint && (
+        <div className="mt-6 bg-stone-50 p-6 rounded-lg shadow-lg border-2 border-amber-700">
+          <div className="flex items-center gap-3 mb-3">
+            <h3 className="text-2xl font-bold text-stone-800">{selectedPoint.name}</h3>
+            <span className="bg-amber-700 text-white px-3 py-1 rounded text-sm font-bold">{selectedPoint.year}</span>
           </div>
-          <p className="text-stone-700 mt-3">{selectedPoint.description}</p>
-          <div className="mt-4 bg-stone-100 rounded p-4"><span className="text-red-700 font-semibold text-sm">Reality Check:</span><p className="text-stone-700 mt-1">{selectedPoint.significance}</p></div>
+          <p className="text-stone-700 text-lg mb-2">{selectedPoint.description}</p>
+          <p className="text-stone-600 mb-3"><span className="font-semibold">Significance:</span> {selectedPoint.significance}</p>
+          <div className="bg-red-50 border-l-4 border-red-600 p-3 rounded">
+            <p className="text-red-800 font-semibold text-sm">⚔️ Casualties: {selectedPoint.casualties}</p>
+          </div>
         </div>
-      ) : (
-        <div className="mt-4 bg-stone-100 rounded-lg p-4 text-center text-stone-600">Click on a point on the map to learn about Alexander's conquests.</div>
       )}
-      <div className="mt-6 grid grid-cols-3 gap-4">
-        <div className="bg-white rounded-lg shadow p-4 text-center"><p className="text-3xl font-bold text-amber-600">10</p><p className="text-sm text-stone-600">Years of Conquest</p></div>
-        <div className="bg-white rounded-lg shadow p-4 text-center"><p className="text-3xl font-bold text-red-700">2</p><p className="text-sm text-stone-600">Years Empire Lasted</p></div>
-        <div className="bg-white rounded-lg shadow p-4 text-center"><p className="text-3xl font-bold text-stone-700">0</p><p className="text-sm text-stone-600">Original Innovations</p></div>
-      </div>
     </div>
   );
 }
