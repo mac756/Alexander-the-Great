@@ -62,6 +62,27 @@ const timelineEvents: TimelineEvent[] = [
     details: "Alexander's most famous victory, but achieved with an army that Philip had spent 20 years perfecting."
   },
   {
+    year: "331 BC",
+    title: "Darius's Incompetence at Gaugamela",
+    description: "Persian leadership failure, not just Alexander's skill",
+    isPhilip: false,
+    details: "Darius chose disadvantageous flat terrain favoring Macedonian cavalry, abandoned his army and fled when battle turned, leaving Persian forces leaderless. Shows Persian leadership failure, not just Alexander's skill."
+  },
+  {
+    year: "330 BC",
+    title: "Burning of Persepolis",
+    description: "Alexander burns Persian capital in drunken revelry",
+    isPhilip: false,
+    details: "Alexander burns the Persian capital in drunken revelry, alienating Persian subjects and showing poor governance. A strategic blunder that undermined his ability to rule the conquered territories."
+  },
+  {
+    year: "326 BC",
+    title: "The Mutiny at the Hyphasis River",
+    description: "Alexander's army refuses to continue into India",
+    isPhilip: false,
+    details: "After 8 years of campaigning, Alexander's exhausted and homesick soldiers refused to continue into India. Shows Alexander's poor leadership - couldn't inspire men to follow him further. The army mutinied and forced him to turn back."
+  },
+  {
     year: "323 BC",
     title: "Alexander Dies",
     description: "Empire fragments within years",

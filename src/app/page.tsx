@@ -41,32 +41,69 @@ export default function Home() {
         </section>
 
         {/* Navigation Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
           <Link href="/timeline" className="group">
-            <div className="bg-white rounded-lg shadow-lg p-8 border-t-4 border-amber-600 hover:shadow-xl transition-all h-full">
-              <h2 className="text-2xl font-bold text-stone-800 mb-3">Interactive Timeline</h2>
-              <p className="text-stone-600">Explore the conquests and see how Philip II's groundwork made them possible.</p>
+            <div className="bg-white rounded-xl shadow-lg p-10 border-2 border-[#d4af37] hover:shadow-2xl hover:bg-[#fff8dc] transition-all duration-300 h-full flex flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">📜</span>
+                <h2 className="text-2xl font-bold text-[#5c4033]">Timeline</h2>
+              </div>
+              <p className="text-[#5c4033] flex-grow">Explore the conquests and see how Philip II's groundwork made them possible.</p>
+              <div className="mt-4 pt-4 border-t border-[#d4af37]/30">
+                <span className="text-sm text-[#8b6914] font-semibold">Amber Theme →</span>
+              </div>
+            </div>
+          </Link>
+
+          <Link href="/technology" className="group">
+            <div className="bg-white rounded-xl shadow-lg p-10 border-2 border-[#4a90e2] hover:shadow-2xl hover:bg-[#f0f8ff] transition-all duration-300 h-full flex flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">⚔️</span>
+                <h2 className="text-2xl font-bold text-[#5c4033]">Technology</h2>
+              </div>
+              <p className="text-[#5c4033] flex-grow">Discover the military innovations that Philip II created and Alexander inherited.</p>
+              <div className="mt-4 pt-4 border-t border-[#4a90e2]/30">
+                <span className="text-sm text-[#4a90e2] font-semibold">Blue Theme →</span>
+              </div>
             </div>
           </Link>
 
           <Link href="/philip-factor" className="group">
-            <div className="bg-white rounded-lg shadow-lg p-8 border-t-4 border-red-700 hover:shadow-xl transition-all h-full">
-              <h2 className="text-2xl font-bold text-stone-800 mb-3">The Philip Factor</h2>
-              <p className="text-stone-600">Myth-busting analysis of Alexander's dependency on his father's military innovations.</p>
+            <div className="bg-white rounded-xl shadow-lg p-10 border-2 border-[#8b0000] hover:shadow-2xl hover:bg-[#fff5f5] transition-all duration-300 h-full flex flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">👑</span>
+                <h2 className="text-2xl font-bold text-[#5c4033]">Philip Factor</h2>
+              </div>
+              <p className="text-[#5c4033] flex-grow">Myth-busting analysis of Alexander's dependency on his father's innovations.</p>
+              <div className="mt-4 pt-4 border-t border-[#8b0000]/30">
+                <span className="text-sm text-[#8b0000] font-semibold">Red Theme →</span>
+              </div>
             </div>
           </Link>
 
           <Link href="/comparison" className="group">
-            <div className="bg-white rounded-lg shadow-lg p-8 border-t-4 border-stone-600 hover:shadow-xl transition-all h-full">
-              <h2 className="text-2xl font-bold text-stone-800 mb-3">Alexander vs Napoleon</h2>
-              <p className="text-stone-600">Compare two military leaders: one who built an empire, one who inherited it.</p>
+            <div className="bg-white rounded-xl shadow-lg p-10 border-2 border-[#228b22] hover:shadow-2xl hover:bg-[#f0fff0] transition-all duration-300 h-full flex flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">⚖️</span>
+                <h2 className="text-2xl font-bold text-[#5c4033]">vs Napoleon</h2>
+              </div>
+              <p className="text-[#5c4033] flex-grow">Compare two military leaders: one who built an empire, one who inherited it.</p>
+              <div className="mt-4 pt-4 border-t border-[#228b22]/30">
+                <span className="text-sm text-[#228b22] font-semibold">Green Theme →</span>
+              </div>
             </div>
           </Link>
 
           <Link href="/sources" className="group">
-            <div className="bg-white rounded-lg shadow-lg p-8 border-t-4 border-stone-500 hover:shadow-xl transition-all h-full">
-              <h2 className="text-2xl font-bold text-stone-800 mb-3">Sources</h2>
-              <p className="text-stone-600">Academic citations including recent scholarship (2020-2025).</p>
+            <div className="bg-white rounded-xl shadow-lg p-10 border-2 border-[#663399] hover:shadow-2xl hover:bg-[#faf5ff] transition-all duration-300 h-full flex flex-col">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl">📚</span>
+                <h2 className="text-2xl font-bold text-[#5c4033]">Sources</h2>
+              </div>
+              <p className="text-[#5c4033] flex-grow">Academic citations including recent scholarship (2020-2025).</p>
+              <div className="mt-4 pt-4 border-t border-[#663399]/30">
+                <span className="text-sm text-[#663399] font-semibold">Purple Theme →</span>
+              </div>
             </div>
           </Link>
         </div>

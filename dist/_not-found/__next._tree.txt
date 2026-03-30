@@ -1,2 +1,2 @@
-:HL["/Alexander-the-Great/_next/static/chunks/0gm7~p0alte4n.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"aLvF1Z-n6DLeCgv2eBhn_"}
+:HL["/Alexander-the-Great/_next/static/chunks/0pjvanjn7z8y_.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"hE1GryH-VBZPrrPJ7DIe0"}

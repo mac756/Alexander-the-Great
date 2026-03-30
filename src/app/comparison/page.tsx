@@ -217,7 +217,114 @@ export default function Comparison() {
             </div>
           </div>
         </section>
-{/* Conclusion */}
+          {/* Major Campaigns Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">Major Campaigns</h2>
+          
+          {/* Alexander's Campaigns */}
+          <div className="mb-10">
+            <h3 className="text-2xl font-bold text-[#8b0000] mb-6 font-serif text-center">Alexander's Campaigns</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-[#f4e4bc] rounded-lg shadow-lg p-6 border-l-4 border-[#8b0000]">
+                <h4 className="text-lg font-bold text-[#5c4033] mb-2">Persian Campaign (334-330 BC)</h4>
+                <p className="text-sm text-[#5c4033] mb-3">Inherited army conquers Persia using Philip's tactics. Victories: Granicus, Issus, Gaugamela.</p>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-[#8b0000] font-semibold">Cost:</span>
+                    <span className="text-[#5c4033]">50,000+ casualties</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-[#8b0000] font-semibold">Result:</span>
+                    <span className="text-[#5c4033]">Empire collapsed in 2 years after death</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-[#f4e4bc] rounded-lg shadow-lg p-6 border-l-4 border-[#8b0000]">
+                <h4 className="text-lg font-bold text-[#5c4033] mb-2">Indian Campaign (327-325 BC)</h4>
+                <p className="text-sm text-[#5c4033] mb-3">Forced march through harsh terrain. Costly victory at Hydaspes. Army mutinied at Hyphasis River.</p>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-[#8b0000] font-semibold">Cost:</span>
+                    <span className="text-[#5c4033]">Heavy losses from disease/desertion</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-[#8b0000] font-semibold">Result:</span>
+                    <span className="text-[#5c4033]">Abandoned, no lasting gain</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-[#f4e4bc] rounded-lg shadow-lg p-6 border-l-4 border-[#8b0000]">
+                <h4 className="text-lg font-bold text-[#5c4033] mb-2">Bactrian Campaign (329-327 BC)</h4>
+                <p className="text-sm text-[#5c4033] mb-3">Brutal guerrilla warfare against nomadic tribes. Alexander wounded multiple times.</p>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-[#8b0000] font-semibold">Cost:</span>
+                    <span className="text-[#5c4033]">High casualties</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-[#8b0000] font-semibold">Result:</span>
+                    <span className="text-[#5c4033]">Territory lost immediately after death</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Napoleon's Campaigns */}
+          <div className="mb-10">
+            <h3 className="text-2xl font-bold text-stone-700 mb-6 font-serif text-center">Napoleon's Campaigns</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-stone-100 rounded-lg shadow-lg p-6 border-l-4 border-stone-600">
+                <h4 className="text-lg font-bold text-stone-800 mb-2">Italian Campaign (1796-1797)</h4>
+                <p className="text-sm text-stone-600 mb-3">Revolutionary tactics, outmaneuvered superior Austrian forces. Victories: Lodi, Arcole, Rivoli.</p>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-stone-700 font-semibold">Cost:</span>
+                    <span className="text-stone-600">Minimal</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-stone-700 font-semibold">Result:</span>
+                    <span className="text-stone-600">Established French dominance in Italy, lasting peace gains</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-stone-100 rounded-lg shadow-lg p-6 border-l-4 border-stone-600">
+                <h4 className="text-lg font-bold text-stone-800 mb-2">Egyptian Campaign (1798-1801)</h4>
+                <p className="text-sm text-stone-600 mb-3">Scientific expedition + military conquest. Discovered Rosetta Stone.</p>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-stone-700 font-semibold">Cost:</span>
+                    <span className="text-stone-600">Moderate</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-stone-700 font-semibold">Result:</span>
+                    <span className="text-stone-600">Ended Mamluk rule, established French influence</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-stone-100 rounded-lg shadow-lg p-6 border-l-4 border-stone-600">
+                <h4 className="text-lg font-bold text-stone-800 mb-2">Central European Campaign (1805-1807)</h4>
+                <p className="text-sm text-stone-600 mb-3">Austerlitz (1805) - "Battle of the Three Emperors" - masterpiece of maneuver warfare.</p>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-stone-700 font-semibold">Cost:</span>
+                    <span className="text-stone-600">Significant but decisive</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-stone-700 font-semibold">Result:</span>
+                    <span className="text-stone-600">Dissolved Holy Roman Empire, created Confederation of Rhine</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+          {/* Conclusion */}
         <section className="bg-stone-800 text-stone-100 rounded-lg p-8">
           <h2 className="text-2xl font-bold mb-4">The Verdict</h2>
           <p className="text-lg leading-relaxed mb-4">
