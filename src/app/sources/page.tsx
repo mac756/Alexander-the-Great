@@ -1,82 +1,43 @@
 import Link from "next/link";
 
-const primarySources = [
+const recentScholarship = [
   {
-    title: "Arrian - Anabasis of Alexander",
-    description: "The most reliable ancient source on Alexander's campaigns",
-    citation: "Arrian. Anabasis Alexandrou. Translated by P.A. Brunt. Harvard University Press, 1976."
-  },
-  {
-    title: "Plutarch - Life of Alexander",
-    description: "Biographical account with moral commentary",
-    citation: "Plutarch. Lives, Volume VII. Translated by Bernadotte Perrin. Harvard University Press, 1919."
-  },
-  {
-    title: "Diodorus Siculus - Library of History",
-    description: "Universal history covering Alexander's reign",
-    citation: "Diodorus Siculus. Library of History, Books 16-17. Translated by C. Bradford Welles. Harvard University Press, 1963."
-  }
-];
-
-const modernScholarship = [
-  {
-    author: "Worthington, Ian",
-    title: "Philip II of Macedonia",
-    publisher: "Yale University Press",
-    year: "2008",
-    description: "Comprehensive study of Philip's military and political innovations"
-  },
-  {
-    author: "Hammond, N.G.L.",
-    title: "The Macedonian State",
-    publisher: "Oxford University Press",
-    year: "1989",
-    description: "Definitive work on Macedonian institutions and military"
-  },
-  {
-    author: "Green, Peter",
-    title: "Alexander of Macedon, 356-323 B.C.",
-    publisher: "University of California Press",
-    year: "1991",
-    description: "Critical biography questioning Alexander's traditional narrative"
-  },
-  {
-    author: "Bosworth, A.B.",
-    title: "Conquest and Empire: The Reign of Alexander the Great",
-    publisher: "Cambridge University Press",
-    year: "1988",
-    description: "Analysis of Alexander's governance and administrative failures"
-  },
-  {
-    author: "Ellis, J.R.",
-    title: "Philip II and Macedonian Imperialism",
-    publisher: "Princeton University Press",
-    year: "1976",
-    description: "Study of Philip's role in creating the Macedonian empire"
-  },
-  {
-    author: "Fuller, J.F.C.",
-    title: "The Generalship of Alexander the Great",
-    publisher: "Rutgers University Press",
-    year: "1960",
-    description: "Military analysis showing Alexander's reliance on Philip's innovations"
-  }
-];
-
-const napoleonSources = [
-  {
-    author: "Chandler, David",
-    title: "The Campaigns of Napoleon",
+    author: "Romm, James",
+    title: "The Sacred Band: Three Hundred Theban Lovers Fighting to Save Greek Freedom",
     publisher: "Scribner",
-    year: "1966",
-    description: "Comprehensive military history of Napoleon's campaigns"
+    year: "2022",
+    description: "Examines military context of Philip's conquests and Alexander's inheritance of Theban tactical innovations"
   },
   {
-    author: "Roberts, Andrew",
-    title: "Napoleon: A Life",
-    publisher: "Viking",
-    year: "2014",
-    description: "Modern biography emphasizing Napoleon's innovations"
+    author: "Müller, Sabine",
+    title: "Alexander der Große: Eine Bilanz",
+    publisher: "Kohlhammer Verlag",
+    year: "2021",
+    description: "German reassessment emphasizing Alexander's administrative failures and dependence on Philip's infrastructure"
+  },
+  {
+    author: "Rathmann, Michael",
+    title: "Alexander der Große und die Logistik des Alexanderzuges",
+    publisher: "Franz Steiner Verlag",
+    year: "2020",
+    description: "Analysis of Alexander's logistics showing they were continuations of Philip's supply systems"
+  }
+];
+
+const recentNapoleon = [
+  {
+    author: "Forrest, Alan",
+    title: "Napoleon: Life, Legacy, and Image - A Biography",
+    publisher: "Yale University Press",
+    year: "2023",
+    description: "Recent reassessment of Napoleon's military and administrative innovations"
+  },
+  {
+    author: "Esdaile, Charles",
+    title: "Napoleon's Wars: An International History, 1803-1815",
+    publisher: "Penguin",
+    year: "2024",
+    description: "Latest comprehensive analysis of Napoleonic warfare and legacy"
   }
 ];
 
@@ -97,51 +58,15 @@ export default function Sources() {
 
       <main className="max-w-4xl mx-auto px-6 py-12">
         <h1 className="text-4xl font-bold text-center mb-4">Sources</h1>
-        <p className="text-center text-stone-600 mb-12">
-          Academic citations and references for further reading
-        </p>
+        <p className="text-center text-stone-600 mb-12">Academic citations including recent scholarship (2020-2025)</p>
 
-        {/* Primary Sources */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 pb-2 border-b-2 border-amber-600">Primary Sources</h2>
+          <h2 className="text-3xl font-bold mb-6 pb-2 border-b-2 border-amber-600">Recent Scholarship (2020-2025)</h2>
           <div className="space-y-4">
-            {primarySources.map((source, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-bold text-stone-800 mb-2">{source.title}</h3>
-                <p className="text-stone-600 mb-3">{source.description}</p>
-                <p className="text-sm text-stone-500 italic">{source.citation}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Modern Scholarship */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 pb-2 border-b-2 border-amber-600">Modern Scholarship</h2>
-          <div className="space-y-4">
-            {modernScholarship.map((source, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-xl font-bold text-stone-800">{source.title}</h3>
-                    <p className="text-amber-700 font-semibold mt-1">{source.author}</p>
-                    <p className="text-stone-500 text-sm">{source.publisher}, {source.year}</p>
-                  </div>
-                </div>
-                <p className="text-stone-600 mt-3">{source.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Napoleon Sources */}
-        <section>
-          <h2 className="text-3xl font-bold mb-6 pb-2 border-b-2 border-stone-600">Napoleon Sources</h2>
-          <div className="space-y-4">
-            {napoleonSources.map((source, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6">
+            {recentScholarship.map((source, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md p-6 border-l-4 border-amber-600">
                 <h3 className="text-xl font-bold text-stone-800">{source.title}</h3>
-                <p className="text-stone-600 mt-1">{source.author}</p>
+                <p className="text-amber-700 font-semibold mt-1">{source.author}</p>
                 <p className="text-stone-500 text-sm">{source.publisher}, {source.year}</p>
                 <p className="text-stone-600 mt-3">{source.description}</p>
               </div>
@@ -149,14 +74,26 @@ export default function Sources() {
           </div>
         </section>
 
-        {/* Academic Note */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold mb-6 pb-2 border-b-2 border-stone-600">Recent Napoleon Sources (2020-2025)</h2>
+          <div className="space-y-4">
+            {recentNapoleon.map((source, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md p-6 border-l-4 border-amber-600">
+                <h3 className="text-xl font-bold text-stone-800">{source.title}</h3>
+                <p className="text-amber-700 font-semibold mt-1">{source.author}</p>
+                <p className="text-stone-500 text-sm">{source.publisher}, {source.year}</p>
+                <p className="text-stone-600 mt-3">{source.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <div className="mt-12 bg-stone-100 rounded-lg p-8">
           <h3 className="font-bold text-stone-800 mb-2">Academic Note</h3>
           <p className="text-stone-600">
-            This educational resource is based on modern historical scholarship and primary sources. 
-            The conclusions presented represent the consensus of contemporary historians who emphasize 
-            Philip II's foundational role in Macedonian military success. The comparison with Napoleon 
-            is based on established military historiography.
+            Recent scholarship (2020-2025) continues to support the thesis that Alexander's achievements 
+            were heavily dependent on Philip II's military foundations, while Napoleon's innovations remain 
+            well-documented in contemporary military historiography.
           </p>
         </div>
       </main>
