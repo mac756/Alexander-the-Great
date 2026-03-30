@@ -1,4 +1,4 @@
-:HL["/Alexander-the-Great/_next/static/chunks/0a8qhvgymc535.css","style"]
+:HL["/Alexander-the-Great/_next/static/chunks/0gm7~p0alte4n.css","style"]
 :HL["/Alexander-the-Great/_next/static/media/2a65768255d6b625-s.p.14by5b4al-y~f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Alexander-the-Great/_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"sources","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"qJmo0yuC5M_Kdw8ew9xfz"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"sources","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"aLvF1Z-n6DLeCgv2eBhn_"}

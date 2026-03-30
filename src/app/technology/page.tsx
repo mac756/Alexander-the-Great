@@ -1,22 +1,32 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 
-const technologies = [
+interface TechnologySide {
+  title: string;
+  value: string;
+  description: string;
+}
+
+interface Technology {
+  name: string;
+  macedonian: TechnologySide;
+  persian: TechnologySide;
+}
+
+const technologies: Technology[] = [
   {
     name: 'Spear/Sarissa',
     macedonian: {
       title: 'Sarissa',
       value: '18ft (5.5m)',
-      description: 'Two-handed pike requiring both hands to wield',
-      svg: <svg viewBox="0 0 100 20" className="w-full h-8"><line x1="5" y1="10" x2="95" y2="10" stroke="#8b6914" strokeWidth="3"/><polygon points="95,10 85,6 85,14" fill="#8b6914"/></svg>
+      description: 'Two-handed pike requiring both hands to wield'
     },
     persian: {
       title: 'Short Spear',
       value: '6-8ft (2-2.5m)',
-      description: 'One-handed thrusting weapon with shield',
-      svg: <svg viewBox="0 0 100 20" className="w-full h-8"><line x1="40" y1="10" x2="60" y2="10" stroke="#8b0000" strokeWidth="3"/><polygon points="60,10 55,7 55,13" fill="#8b0000"/></svg>
+      description: 'One-handed thrusting weapon used with shield'
     }
   },
   {
@@ -24,29 +34,25 @@ const technologies = [
     macedonian: {
       title: 'Phalanx',
       value: '16x16 Grid',
-      description: 'Massive rectangular formation with overlapping spears',
-      svg: <svg viewBox="0 0 100 100" className="w-full h-20"><g fill="#8b6914" opacity="0.8"><circle cx="20" cy="20" r="8"/><circle cx="40" cy="20" r="8"/><circle cx="60" cy="20" r="8"/><circle cx="80" cy="20" r="8"/><circle cx="20" cy="40" r="8"/><circle cx="40" cy="40" r="8"/><circle cx="60" cy="40" r="8"/><circle cx="80" cy="40" r="8"/><circle cx="20" cy="60" r="8"/><circle cx="40" cy="60" r="8"/><circle cx="60" cy="60" r="8"/><circle cx="80" cy="60" r="8"/><circle cx="20" cy="80" r="8"/><circle cx="40" cy="80" r="8"/><circle cx="60" cy="80" r="8"/><circle cx="80" cy="80" r="8"/></g></svg>
+      description: 'Massive rectangular formation with overlapping spears'
     },
     persian: {
       title: 'Line Formation',
       value: 'Single Rank',
-      description: 'Extended line with gaps between units',
-      svg: <svg viewBox="0 0 100 100" className="w-full h-20"><g fill="#8b0000" opacity="0.8"><rect x="10" y="35" width="14" height="30"/><rect x="28" y="35" width="14" height="30"/><rect x="46" y="35" width="14" height="30"/><rect x="64" y="35" width="14" height="30"/><rect x="82" y="35" width="14" height="30"/></g></svg>
+      description: 'Extended line with gaps between units'
     }
   },
   {
     name: 'Armor',
     macedonian: {
-      title: 'Linen Corselet',
-      value: 'Linen Layers',
-      description: 'Multi-layered linen armor, lighter and flexible',
-      svg: <svg viewBox="0 0 100 100" className="w-full h-20"><path d="M35 20 L65 20 L70 50 L65 90 L50 95 L35 90 L30 50 Z" fill="#8b6914" stroke="#5c4033" strokeWidth="2"/><line x1="35" y1="35" x2="65" y2="35" stroke="#5c4033"/><line x1="33" y1="50" x2="67" y2="50" stroke="#5c4033"/><line x1="35" y1="65" x2="65" y2="65" stroke="#5c4033"/></svg>
+      title: 'Bronze Muscle Cuirass',
+      value: 'Heavy Bronze',
+      description: 'Solid bronze breastplate molded to the body'
     },
     persian: {
-      title: 'Scale Armor',
-      value: 'Bronze Scales',
-      description: 'Overlapping metal scales sewn to leather backing',
-      svg: <svg viewBox="0 0 100 100" className="w-full h-20"><path d="M35 20 L65 20 L70 50 L65 90 L50 95 L35 90 L30 50 Z" fill="#8b0000" stroke="#5c4033" strokeWidth="2"/><g fill="#d4af37" opacity="0.6"><rect x="32" y="25" width="6" height="8"/><rect x="39" y="25" width="6" height="8"/><rect x="46" y="25" width="6" height="8"/><rect x="53" y="25" width="6" height="8"/><rect x="60" y="25" width="6" height="8"/><rect x="32" y="40" width="6" height="8"/><rect x="39" y="40" width="6" height="8"/><rect x="46" y="40" width="6" height="8"/><rect x="53" y="40" width="6" height="8"/><rect x="60" y="40" width="6" height="8"/><rect x="32" y="55" width="6" height="8"/><rect x="39" y="55" width="6" height="8"/><rect x="46" y="55" width="6" height="8"/><rect x="53" y="55" width="6" height="8"/><rect x="60" y="55" width="6" height="8"/><rect x="32" y="70" width="6" height="8"/><rect x="39" y="70" width="6" height="8"/><rect x="46" y="70" width="6" height="8"/><rect x="53" y="70" width="6" height="8"/><rect x="60" y="70" width="6" height="8"/></g></svg>
+      title: 'Scale Armor & Linen Corselet',
+      value: 'Bronze/Iron Scales',
+      description: 'Bronze/iron scales on leather, or multi-layered linen armor'
     }
   },
   {
@@ -54,14 +60,12 @@ const technologies = [
     macedonian: {
       title: 'Torsion Catapults',
       value: '60lb Stones',
-      description: 'Revolutionary siege engines developed by engineers',
-      svg: <svg viewBox="0 0 100 100" className="w-full h-20"><rect x="20" y="60" width="60" height="30" fill="#5c4033"/><rect x="30" y="30" width="40" height="35" fill="#8b6914"/><circle cx="50" cy="50" r="8" fill="#d4af37"/><line x1="50" y1="50" x2="70" y2="20" stroke="#8b0000" strokeWidth="2"/><circle cx="70" cy="20" r="3" fill="#d4af37"/></svg>
+      description: 'Revolutionary siege engines developed by engineers'
     },
     persian: {
       title: 'Battering Rams',
       value: 'Basic Rams',
-      description: 'Traditional ramming devices on wheels',
-      svg: <svg viewBox="0 0 100 100" className="w-full h-20"><rect x="15" y="50" width="50" height="25" fill="#8b0000"/><rect x="65" y="45" width="20" height="35" fill="#5c4033"/><circle cx="25" cy="75" r="8" fill="#333"/><circle cx="55" cy="75" r="8" fill="#333"/></svg>
+      description: 'Traditional ramming devices on wheels'
     }
   },
   {
@@ -69,14 +73,12 @@ const technologies = [
     macedonian: {
       title: 'Companion Cavalry',
       value: 'Heavy Shock',
-      description: 'Elite heavy cavalry for decisive charges',
-      svg: <svg viewBox="0 0 100 80" className="w-full h-16"><path d="M20 50 Q30 20 45 25 Q50 15 60 20 Q70 15 75 25 Q80 30 75 50 L70 70 L60 65 L55 70 L50 60 L30 65 L25 55 Z" fill="#8b6914"/><circle cx="70" cy="25" r="8" fill="#8b6914"/></svg>
+      description: 'Elite heavy cavalry for decisive charges'
     },
     persian: {
       title: 'Light Cavalry',
       value: 'Skirmishers',
-      description: 'Fast, mobile archers and harassers',
-      svg: <svg viewBox="0 0 100 80" className="w-full h-16"><path d="M25 50 Q35 25 50 30 Q55 20 65 25 Q75 20 80 30 Q85 35 80 50 L75 65 L65 60 L60 65 L55 55 L35 60 L30 50 Z" fill="#8b0000"/><circle cx="75" cy="30" r="6" fill="#8b0000"/></svg>
+      description: 'Fast, mobile archers and harassers'
     }
   }
 ];
@@ -86,6 +88,412 @@ const stats = [
   { value: '20', label: 'Years of Development' },
   { value: '0', label: 'Alexander\'s Inventions' }
 ];
+
+// 3D Spear Component
+function Spear3D({ isMacedonian }: { isMacedonian: boolean }) {
+  const [hovered, setHovered] = useState(false);
+  
+  return (
+    <div 
+      className="relative h-20 w-full flex items-center justify-center cursor-pointer"
+      style={{ perspective: '500px' }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div 
+        className="relative transition-transform duration-500"
+        style={{
+          transformStyle: 'preserve-3d',
+          transform: hovered ? 'rotateY(15deg) rotateX(5deg)' : 'rotateY(0deg) rotateX(0deg)'
+        }}
+      >
+        {isMacedonian ? (
+          <div className="relative flex items-center">
+            <div 
+              className="w-48 h-3 rounded-sm"
+              style={{
+                background: 'linear-gradient(90deg, #5c4033 0%, #8b6914 50%, #5c4033 100%)',
+                boxShadow: '2px 2px 5px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.3)'
+              }}
+            />
+            <div 
+              className="w-8 h-5 -ml-1"
+              style={{
+                clipPath: 'polygon(0% 50%, 100% 0%, 100% 100%)',
+                background: 'linear-gradient(90deg, #d4af37 0%, #f4e4bc 50%, #d4af37 100%)',
+                boxShadow: '2px 2px 8px rgba(0,0,0,0.4)'
+              }}
+            />
+          </div>
+        ) : (
+          <div className="relative flex items-center">
+            <div 
+              className="w-24 h-3 rounded-sm"
+              style={{
+                background: 'linear-gradient(90deg, #5c4033 0%, #8b6914 50%, #5c4033 100%)',
+                boxShadow: '2px 2px 5px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.3)'
+              }}
+            />
+            <div 
+              className="w-5 h-4 -ml-1"
+              style={{
+                clipPath: 'polygon(0% 50%, 100% 0%, 100% 100%)',
+                background: 'linear-gradient(90deg, #8b0000 0%, #a52a2a 50%, #8b0000 100%)',
+                boxShadow: '2px 2px 8px rgba(0,0,0,0.4)'
+              }}
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// 3D Formation Component
+function Formation3D({ isMacedonian }: { isMacedonian: boolean }) {
+  const [hovered, setHovered] = useState(false);
+  
+  return (
+    <div 
+      className="relative h-20 w-full flex items-center justify-center cursor-pointer"
+      style={{ perspective: '600px' }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div 
+        className="relative transition-transform duration-500"
+        style={{
+          transformStyle: 'preserve-3d',
+          transform: hovered ? 'rotateX(20deg) rotateY(-15deg)' : 'rotateX(10deg) rotateY(-5deg)'
+        }}
+      >
+        {isMacedonian ? (
+          <div 
+            className="grid grid-cols-4 gap-1 p-2 rounded"
+            style={{
+              background: '#5c4033',
+              boxShadow: '4px 4px 12px rgba(0,0,0,0.4), inset 2px 2px 4px rgba(255,255,255,0.1)'
+            }}
+          >
+            {[...Array(16)].map((_, i) => (
+              <div 
+                key={i}
+                className="w-8 h-8 rounded-full"
+                style={{
+                  background: 'radial-gradient(circle at 30% 30%, #d4af37, #8b6914)',
+                  boxShadow: '2px 2px 4px rgba(0,0,0,0.5), inset -1px -1px 2px rgba(0,0,0,0.3)',
+                  transform: 'translateZ(8px)'
+                }}
+              />
+            ))}
+          </div>
+        ) : (
+          <div 
+            className="flex gap-2 p-2 rounded"
+            style={{
+              background: '#4a0000',
+              boxShadow: '4px 4px 12px rgba(0,0,0,0.4), inset 2px 2px 4px rgba(255,255,255,0.1)'
+            }}
+          >
+            {[...Array(5)].map((_, i) => (
+              <div 
+                key={i}
+                className="w-6 h-12 rounded-sm"
+                style={{
+                  background: 'linear-gradient(180deg, #8b0000 0%, #a52a2a 50%, #8b0000 100%)',
+                  boxShadow: '2px 2px 4px rgba(0,0,0,0.5), inset -1px -1px 2px rgba(0,0,0,0.3)',
+                  transform: 'translateZ(5px)'
+                }}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// 3D Armor Component
+function Armor3D({ isMacedonian }: { isMacedonian: boolean }) {
+  const [hovered, setHovered] = useState(false);
+  
+  return (
+    <div 
+      className="relative h-24 w-full flex items-center justify-center cursor-pointer"
+      style={{ perspective: '500px' }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div 
+        className="relative transition-transform duration-500"
+        style={{
+          transformStyle: 'preserve-3d',
+          transform: hovered ? 'rotateY(15deg) rotateX(-5deg)' : 'rotateY(5deg) rotateX(-5deg)'
+        }}
+      >
+        {isMacedonian ? (
+          <div 
+            className="w-24 h-20 rounded-lg relative"
+            style={{
+              background: 'radial-gradient(ellipse at 50% 30%, #d4af37 0%, #8b6914 40%, #5c4033 100%)',
+              boxShadow: 
+                '4px 4px 15px rgba(0,0,0,0.5), ' +
+                'inset 2px 2px 8px rgba(255,255,255,0.3), ' +
+                'inset -2px -2px 8px rgba(0,0,0,0.3)',
+              transform: 'translateZ(10px)'
+            }}
+          >
+            {/* Muscle definition lines */}
+            <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-[#5c4033]/50" />
+            <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-18 h-0.5 bg-[#5c4033]/50" />
+            <div className="absolute top-10 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-[#5c4033]/50" />
+            <div className="absolute top-14 left-1/2 transform -translate-x-1/2 w-12 h-0.5 bg-[#5c4033]/50" />
+          </div>
+        ) : (
+          <div className="relative">
+            {/* Scale armor on leather backing */}
+            <div 
+              className="w-24 h-20 rounded-lg relative"
+              style={{
+                background: '#3d2817',
+                boxShadow: '4px 4px 15px rgba(0,0,0,0.5)',
+                transform: 'translateZ(10px)'
+              }}
+            >
+              {/* Scale pattern */}
+              <div className="absolute inset-2 grid grid-cols-4 gap-0.5">
+                {[...Array(16)].map((_, i) => (
+                  <div 
+                    key={i}
+                    className="w-5 h-5 rounded-sm"
+                    style={{
+                      background: 'linear-gradient(135deg, #d4af37 0%, #8b6914 50%, #5c4033 100%)',
+                      boxShadow: '1px 1px 3px rgba(0,0,0,0.4)',
+                      transform: 'translateZ(2px)'
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="mt-1 text-xs text-center text-[#5c4033] opacity-70">Scale + Linen</div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// 3D Siege Component
+function Siege3D({ isMacedonian }: { isMacedonian: boolean }) {
+  const [hovered, setHovered] = useState(false);
+  
+  return (
+    <div 
+      className="relative h-24 w-full flex items-center justify-center cursor-pointer"
+      style={{ perspective: '600px' }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div 
+        className="relative transition-transform duration-500"
+        style={{
+          transformStyle: 'preserve-3d',
+          transform: hovered ? 'rotateY(-15deg) rotateX(10deg)' : 'rotateY(-5deg) rotateX(5deg)'
+        }}
+      >
+        {isMacedonian ? (
+          <div className="relative">
+            {/* Catapult base */}
+            <div 
+              className="w-28 h-16 rounded"
+              style={{
+                background: 'linear-gradient(180deg, #5c4033 0%, #3d2817 100%)',
+                boxShadow: '4px 4px 15px rgba(0,0,0,0.5), inset 2px 2px 8px rgba(255,255,255,0.1)',
+                transform: 'translateZ(15px)'
+              }}
+            >
+              {/* Torsion arms */}
+              <div 
+                className="absolute -top-2 left-4 w-4 h-20 rounded-full"
+                style={{
+                  background: 'linear-gradient(90deg, #8b6914 0%, #d4af37 50%, #8b6914 100%)',
+                  boxShadow: '2px 2px 5px rgba(0,0,0,0.4)',
+                  transform: 'rotateX(20deg)'
+                }}
+              />
+              <div 
+                className="absolute -top-2 right-4 w-4 h-20 rounded-full"
+                style={{
+                  background: 'linear-gradient(90deg, #8b6914 0%, #d4af37 50%, #8b6914 100%)',
+                  boxShadow: '2px 2px 5px rgba(0,0,0,0.4)',
+                  transform: 'rotateX(20deg)'
+                }}
+              />
+              {/* Basket */}
+              <div 
+                className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-8 h-6 rounded"
+                style={{
+                  background: '#8b6914',
+                  boxShadow: '2px 2px 5px rgba(0,0,0,0.4)'
+                }}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="relative">
+            {/* Battering ram structure */}
+            <div 
+              className="w-32 h-14 rounded relative"
+              style={{
+                background: '#3d2817',
+                boxShadow: '4px 4px 15px rgba(0,0,0,0.5)',
+                transform: 'translateZ(15px)'
+              }}
+            >
+              {/* Roof */}
+              <div 
+                className="absolute -top-3 left-0 w-full h-6"
+                style={{
+                  background: 'linear-gradient(180deg, #8b0000 0%, #5c0000 100%)',
+                  clipPath: 'polygon(0% 100%, 10% 0%, 90% 0%, 100% 100%)',
+                  boxShadow: '2px 2px 5px rgba(0,0,0,0.4)'
+                }}
+              />
+              {/* Ram beam */}
+              <div 
+                className="absolute top-1/2 -right-8 transform -translate-y-1/2 w-12 h-4 rounded"
+                style={{
+                  background: 'linear-gradient(90deg, #5c4033 0%, #3d2817 100%)',
+                  boxShadow: '2px 2px 5px rgba(0,0,0,0.4)'
+                }}
+              />
+              {/* Wheels */}
+              <div 
+                className="absolute -bottom-3 left-4 w-6 h-6 rounded-full"
+                style={{
+                  background: '#2a2a2a',
+                  boxShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                }}
+              />
+              <div 
+                className="absolute -bottom-3 right-4 w-6 h-6 rounded-full"
+                style={{
+                  background: '#2a2a2a',
+                  boxShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                }}
+              />
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// 3D Cavalry Component
+function Cavalry3D({ isMacedonian }: { isMacedonian: boolean }) {
+  const [hovered, setHovered] = useState(false);
+  
+  return (
+    <div 
+      className="relative h-24 w-full flex items-center justify-center cursor-pointer"
+      style={{ perspective: '500px' }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div 
+        className="relative transition-transform duration-500"
+        style={{
+          transformStyle: 'preserve-3d',
+          transform: hovered ? 'rotateY(-20deg) rotateX(5deg)' : 'rotateY(-10deg) rotateX(0deg)'
+        }}
+      >
+        <div 
+          className="relative w-28 h-16"
+          style={{
+            transform: 'translateZ(10px)'
+          }}
+        >
+          {/* Horse body */}
+          <div 
+            className="absolute top-4 left-4 w-16 h-8 rounded"
+            style={{
+              background: isMacedonian 
+                ? 'linear-gradient(180deg, #8b6914 0%, #5c4033 100%)'
+                : 'linear-gradient(180deg, #8b0000 0%, #5c0000 100%)',
+              boxShadow: '3px 3px 8px rgba(0,0,0,0.4), inset 1px 1px 3px rgba(255,255,255,0.2)'
+            }}
+          />
+          {/* Horse head */}
+          <div 
+            className="absolute top-2 right-2 w-6 h-6 rounded"
+            style={{
+              background: isMacedonian ? '#8b6914' : '#8b0000',
+              clipPath: 'polygon(30% 0%, 100% 20%, 100% 80%, 30% 100%)',
+              boxShadow: '2px 2px 5px rgba(0,0,0,0.4)'
+            }}
+          />
+          {/* Rider */}
+          <div 
+            className="absolute top-0 left-8 w-5 h-6 rounded"
+            style={{
+              background: isMacedonian 
+                ? 'radial-gradient(circle at 30% 30%, #d4af37, #8b6914)'
+                : 'radial-gradient(circle at 30% 30%, #a52a2a, #8b0000)',
+              boxShadow: '2px 2px 4px rgba(0,0,0,0.4)'
+            }}
+          />
+          {/* Legs */}
+          <div 
+            className="absolute bottom-0 left-6 w-2 h-5 rounded-sm"
+            style={{
+              background: isMacedonian ? '#5c4033' : '#5c0000',
+              boxShadow: '1px 1px 3px rgba(0,0,0,0.4)'
+            }}
+          />
+          <div 
+            className="absolute bottom-0 left-12 w-2 h-5 rounded-sm"
+            style={{
+              background: isMacedonian ? '#5c4033' : '#5c0000',
+              boxShadow: '1px 1px 3px rgba(0,0,0,0.4)'
+            }}
+          />
+          <div 
+            className="absolute bottom-0 right-8 w-2 h-5 rounded-sm"
+            style={{
+              background: isMacedonian ? '#5c4033' : '#5c0000',
+              boxShadow: '1px 1px 3px rgba(0,0,0,0.4)'
+            }}
+          />
+          <div 
+            className="absolute bottom-0 right-4 w-2 h-5 rounded-sm"
+            style={{
+              background: isMacedonian ? '#5c4033' : '#5c0000',
+              boxShadow: '1px 1px 3px rgba(0,0,0,0.4)'
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const render3DModel = (techName: string, isMacedonian: boolean) => {
+  switch (techName) {
+    case 'Spear/Sarissa':
+      return <Spear3D isMacedonian={isMacedonian} />;
+    case 'Formation':
+      return <Formation3D isMacedonian={isMacedonian} />;
+    case 'Armor':
+      return <Armor3D isMacedonian={isMacedonian} />;
+    case 'Siege':
+      return <Siege3D isMacedonian={isMacedonian} />;
+    case 'Cavalry':
+      return <Cavalry3D isMacedonian={isMacedonian} />;
+    default:
+      return null;
+  }
+};
 
 export default function TechnologyPage() {
   return (
@@ -119,7 +527,7 @@ export default function TechnologyPage() {
                     </h3>
                   </div>
                   <div className="mb-4">
-                    {tech.macedonian.svg}
+                    {render3DModel(tech.name, true)}
                   </div>
                   <p className="text-2xl font-bold text-[#8b6914] mb-2">
                     {tech.macedonian.value}
@@ -138,7 +546,7 @@ export default function TechnologyPage() {
                     </h3>
                   </div>
                   <div className="mb-4">
-                    {tech.persian.svg}
+                    {render3DModel(tech.name, false)}
                   </div>
                   <p className="text-2xl font-bold text-[#8b0000] mb-2">
                     {tech.persian.value}
@@ -189,22 +597,28 @@ export default function TechnologyPage() {
             Home
           </Link>
           <Link 
-            href="/battles"
+            href="/timeline"
             className="px-6 py-3 bg-[#8b6914] text-white rounded-lg font-semibold hover:bg-[#5c4033] transition-colors"
           >
-            Major Battles
+            Timeline
           </Link>
           <Link 
-            href="/legacy"
+            href="/philip-factor"
             className="px-6 py-3 bg-[#8b0000] text-white rounded-lg font-semibold hover:bg-[#5c4033] transition-colors"
           >
-            Cultural Legacy
+            The Philip Factor
           </Link>
           <Link 
-            href="/myth"
+            href="/comparison"
             className="px-6 py-3 bg-[#d4af37] text-[#5c4033] rounded-lg font-semibold hover:bg-[#8b6914] hover:text-white transition-colors"
           >
-            Myth vs Reality
+            vs Napoleon
+          </Link>
+          <Link 
+            href="/sources"
+            className="px-6 py-3 bg-stone-600 text-white rounded-lg font-semibold hover:bg-[#5c4033] transition-colors"
+          >
+            Sources
           </Link>
         </nav>
 
