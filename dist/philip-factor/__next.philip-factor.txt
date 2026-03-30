@@ -2,4 +2,4 @@
 2:I[15190,["/Alexander-the-Great/_next/static/chunks/0h16mw-7tag30.js","/Alexander-the-Great/_next/static/chunks/00guvlqn6xk7k.js"],"default"]
 3:I[40905,["/Alexander-the-Great/_next/static/chunks/0h16mw-7tag30.js","/Alexander-the-Great/_next/static/chunks/00guvlqn6xk7k.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"IwSGV0GrlP24QPF10Gzt5"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"qJmo0yuC5M_Kdw8ew9xfz"}

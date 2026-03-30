@@ -49,6 +49,7 @@ export default function Sources() {
           <Link href="/" className="text-xl font-bold">Alexander the Great Not So Great</Link>
           <div className="flex gap-2">
             <Link href="/timeline" className="nav-link">Timeline</Link>
+            <Link href="/technology" className="nav-link">Technology</Link>
             <Link href="/philip-factor" className="nav-link">The Philip Factor</Link>
             <Link href="/comparison" className="nav-link">vs Napoleon</Link>
             <Link href="/sources" className="nav-link active">Sources</Link>
