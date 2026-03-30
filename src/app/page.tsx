@@ -8,11 +8,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/" className="text-xl font-bold">Alexander the Great Not So Great</Link>
           <div className="flex gap-2">
-            <Link href="/timeline" className="nav-link">Timeline</Link>
-            <Link href="/technology" className="nav-link">Technology</Link>
-            <Link href="/philip-factor" className="nav-link">The Philip Factor</Link>
-            <Link href="/comparison" className="nav-link">vs Napoleon</Link>
-            <Link href="/sources" className="nav-link">Sources</Link>
+            <Link href="/timeline" className="px-4 py-2 rounded-lg bg-[#d4af37] text-[#5c4033] font-semibold hover:bg-[#c4a030] transition-all shadow-lg">Timeline</Link>
+            <Link href="/technology" className="px-4 py-2 rounded-lg bg-[#4a90e2] text-white font-semibold hover:bg-[#3a80d2] transition-all shadow-lg">Technology</Link>
+            <Link href="/philip-factor" className="px-4 py-2 rounded-lg bg-[#8b0000] text-white font-semibold hover:bg-[#7a0000] transition-all shadow-lg">Philip Factor</Link>
+            <Link href="/comparison" className="px-4 py-2 rounded-lg bg-[#228b22] text-white font-semibold hover:bg-[#1a7a1a] transition-all shadow-lg">vs Napoleon</Link>
+            <Link href="/sources" className="px-4 py-2 rounded-lg bg-[#663399] text-white font-semibold hover:bg-[#552288] transition-all shadow-lg">Sources</Link>
           </div>
         </div>
       </nav>
@@ -31,16 +31,14 @@ export default function Home() {
       </header>
 
       <main className="max-w-6xl mx-auto px-6 py-12">
-        {/* Interactive Map Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-8">Interactive Conquest Map</h2>
           <p className="text-center text-stone-600 mb-8 max-w-2xl mx-auto">
-            Explore Alexander's conquests across the ancient world. Click on points to see how each victory relied on Philip II's military innovations.
+            Explore Alexander&apos;s conquests across the ancient world. Click on points to see how each victory relied on Philip II&apos;s military innovations.
           </p>
           <InteractiveMap />
         </section>
 
-        {/* Navigation Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
           <Link href="/timeline" className="group">
             <div className="bg-white rounded-xl shadow-lg p-10 border-2 border-[#d4af37] hover:shadow-2xl hover:bg-[#fff8dc] transition-all duration-300 h-full flex flex-col">
@@ -48,10 +46,7 @@ export default function Home() {
                 <span className="text-3xl">📜</span>
                 <h2 className="text-2xl font-bold text-[#5c4033]">Timeline</h2>
               </div>
-              <p className="text-[#5c4033] flex-grow">Explore the conquests and see how Philip II's groundwork made them possible.</p>
-              <div className="mt-4 pt-4 border-t border-[#d4af37]/30">
-                <span className="text-sm text-[#8b6914] font-semibold">Amber Theme →</span>
-              </div>
+              <p className="text-[#5c4033] flex-grow">Explore the conquests and see how Philip II&apos;s groundwork made them possible.</p>
             </div>
           </Link>
 
@@ -62,9 +57,6 @@ export default function Home() {
                 <h2 className="text-2xl font-bold text-[#5c4033]">Technology</h2>
               </div>
               <p className="text-[#5c4033] flex-grow">Discover the military innovations that Philip II created and Alexander inherited.</p>
-              <div className="mt-4 pt-4 border-t border-[#4a90e2]/30">
-                <span className="text-sm text-[#4a90e2] font-semibold">Blue Theme →</span>
-              </div>
             </div>
           </Link>
 
@@ -74,10 +66,7 @@ export default function Home() {
                 <span className="text-3xl">👑</span>
                 <h2 className="text-2xl font-bold text-[#5c4033]">Philip Factor</h2>
               </div>
-              <p className="text-[#5c4033] flex-grow">Myth-busting analysis of Alexander's dependency on his father's innovations.</p>
-              <div className="mt-4 pt-4 border-t border-[#8b0000]/30">
-                <span className="text-sm text-[#8b0000] font-semibold">Red Theme →</span>
-              </div>
+              <p className="text-[#5c4033] flex-grow">Myth-busting analysis of Alexander&apos;s dependency on his father&apos;s innovations.</p>
             </div>
           </Link>
 
@@ -88,9 +77,6 @@ export default function Home() {
                 <h2 className="text-2xl font-bold text-[#5c4033]">vs Napoleon</h2>
               </div>
               <p className="text-[#5c4033] flex-grow">Compare two military leaders: one who built an empire, one who inherited it.</p>
-              <div className="mt-4 pt-4 border-t border-[#228b22]/30">
-                <span className="text-sm text-[#228b22] font-semibold">Green Theme →</span>
-              </div>
             </div>
           </Link>
 
@@ -101,14 +87,10 @@ export default function Home() {
                 <h2 className="text-2xl font-bold text-[#5c4033]">Sources</h2>
               </div>
               <p className="text-[#5c4033] flex-grow">Academic citations including recent scholarship (2020-2025).</p>
-              <div className="mt-4 pt-4 border-t border-[#663399]/30">
-                <span className="text-sm text-[#663399] font-semibold">Purple Theme →</span>
-              </div>
             </div>
           </Link>
         </div>
 
-        {/* Thesis Statement */}
         <section className="mt-16 bg-stone-800 text-stone-100 rounded-lg p-8 md:p-12">
           <h2 className="text-3xl font-bold mb-6 text-center">The Thesis</h2>
           <div className="max-w-3xl mx-auto text-lg leading-relaxed space-y-4">
